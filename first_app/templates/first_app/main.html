@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book catalog</title>
+</head>
+<body>
+{% block content %}
+    <form action="/books/"><button>Books</button></form>
+    <form action="/authors/"><button>Authors</button></form>
+    <form action="/comments/"><button>Comments</button></form>
+    <form action="/stores/"><button>Stores</button></form>
+    <form action="/publishers/"><button>Publishers</button></form>
+
+{% endblock %}
+</body>
+</html>

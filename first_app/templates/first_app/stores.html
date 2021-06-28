@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stores</title>
+</head>
+<body>
+{% block content %}
+    <div align="left">
+    <form action="/"><button>Main</button></form>
+    </div>
+    <div class="stores">
+    {% if store %}
+        {% for i in store %}
+                 <a href="{{ i.id }}"><h3>Store: {{ i.name }}</h3></a>
+        {% endfor %}
+        {% else %}
+            <p>There's no stores here, add some.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+</body>
+</html>

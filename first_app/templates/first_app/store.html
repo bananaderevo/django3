@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <form action="/stores/" method="get">
+    <button>Stores</button>
+    </form>
+    <div class="instance" align="left">
+    <h1>Store: {{ store.name }}</h1>
+    <h2>Books: {{ store.display_books }}</h2>
+    </div>
+{% endblock %}
+</body>
+</html>
