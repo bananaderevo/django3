@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ author.name }}</title>
 </head>
 <body>
 {% block content %}
+    <form action="/authors/" method="get">
+    <button>Authors</button>
+    </form>
     <h1>{{ author.name }}</h1>
     <h2>Age: {{ author.age }}</h2>
 {% endblock %}

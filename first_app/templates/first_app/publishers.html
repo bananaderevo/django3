@@ -11,11 +11,16 @@
     </div>
     <div class="publishers">
     {% if publisher %}
+        <table border="1" width="100%" cellpadding="5">
         {% for i in publisher %}
-                 <h3>Publisher: {{ i.name }}</h3>
+            <tr>
+                <th><a href="{{ i.id }}"> Publisher: {{ i.publisher }}</a></th>
+            </tr>
         {% endfor %}
+        </table>
+        <p>Count of publishers: {{ count }}</p>
         {% else %}
-            <p>There are no publishers here, add some.</p>
+            <p>There are no publishers, add some.</p>
         {% endif %}
     </div>
 {% endblock %}

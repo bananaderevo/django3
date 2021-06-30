@@ -11,14 +11,16 @@
     </div>
     <div class="comment">
     {% if comment %}
+        <table border="1" width="100%" cellpadding="5">
         {% for i in comment %}
-            <div class ='showing_comments'>
-                 <h3>{{ i.name }}</h3>
-                <li>{{ i.comment }}</li>
-            </div>
+            <tr>
+                <th><a href="{{ i.id }}"> Comment about "{{ i.name }}"</a></th>
+            </tr>
         {% endfor %}
+        </table>
+        <p>Count of comments: {{ count }}</p>
         {% else %}
-            <p>There are no comments here, add some.</p>
+            <p>There are no comments, add some.</p>
         {% endif %}
     </div>
 {% endblock %}

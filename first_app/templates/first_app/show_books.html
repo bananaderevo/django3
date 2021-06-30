@@ -9,17 +9,21 @@
     <div align="left">
     <form action="/"><button>Main</button></form>
     </div>
-    <div class="catalog" align="center">
+    <div class="catalog">
     {% if book %}
+        <table border="1" width="100%" cellpadding="5">
         {% for i in book %}
-            <div class ='showing-books'>
-                 <h3>{{ i.name }} - {{ i.display_authors }}</h3>
-                 <li>Rating: {{ i.rating }}</li>
-                <form action="{{ i.id }}"><button>More</button></form>
-            </div>
+                 <tr>
+                     <th><a href="{{ i.id }}">{{ i.name }} - {{ i.display_authors }}</a></th>
+                 </tr>
+
         {% endfor %}
+        </table>
+        <p>Average rating of books: {{ rating }}</p>
+        <p>Average price of books: {{ price }}</p>
+        <p>Count of books: {{ pubs }}</p>
         {% else %}
-            <p>There are no books here, add some.</p>
+            <p>There are no books, add some.</p>
         {% endif %}
     </div>
 {% endblock %}

@@ -34,15 +34,18 @@ class Command(BaseCommand):
         else:
             for i in range(options['num']):
                 Author.objects.create(name=fake.name(),
-                                      age=random.randint(18, 90))
-                Publisher.objects.create(name=fake.name().split()[1] + "'s Pub. Company")
+                                      age=random.randint(20, 500))
+                rl = fake.name().split()[1]
+                rf = fake.name().split()[0]
+                Publisher.objects.create(name=rl + rf + str(random.randint(0, 1000)) + "'s Pub. Company")
                 Comments.objects.create(comment=fake.text())
                 Book.objects.create(name=rand_books[random.randint(0, 8)].replace('*', str(random.randint(1, 20))),
                                     pages=random.randint(30, 500),
-                                    price=random.randint(5, 20),
-                                    rating=random.randint(0, 5),
+                                    price=random.randint(3, 50),
+                                    rating=random.randint(10, 100)/10,
                                     publisher=Publisher.objects.last(),
-                                    pubdate=date(random.randint(1930, 2022), random.randint(1, 12), random.randint(1, 30)),
+                                    pubdate=date(random.randint(1930, 2022), random.randint(1, 12),
+                                                 random.randint(1, 28)),
                                     comment=Comments.objects.last()).authors.set([Author.objects.last()])
 
                 Store.objects.create(name=fake_s.name().lower().replace(' ', '').title()

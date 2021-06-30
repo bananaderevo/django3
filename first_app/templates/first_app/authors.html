@@ -11,12 +11,17 @@
     </div>
     <div class="authors">
     {% if authors %}
+        <table border="1" width="100%" cellpadding="5">
         {% for i in authors %}
-                 <a href="{{ i.id }}"><h3>Name: {{ i.name }}</h3></a>
-                Age: {{ i.age }}
+            <tr>
+                <th><a href="{{ i.id }}">Name: {{ i.name }}</a></th>
+            </tr>
         {% endfor %}
+        </table>
+        <p>Count of authors: {{ count }}</p>
+        <p>Average age: {{ age }}</p>
         {% else %}
-            <p>There are no authors here, add someone.</p>
+            <p>There are no authors, add someone.</p>
         {% endif %}
     </div>
 {% endblock %}
