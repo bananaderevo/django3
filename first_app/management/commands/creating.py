@@ -1,10 +1,14 @@
-import datetime
 import random
 import sys
-from faker import Faker
-from ...models import *
-from django.core.management.base import BaseCommand
 from datetime import date
+
+from django.core.management.base import BaseCommand
+
+
+
+from faker import Faker
+
+from ...models import Author, Book, Comments, Publisher, Store
 
 
 fake = Faker()
@@ -42,7 +46,7 @@ class Command(BaseCommand):
                 Book.objects.create(name=rand_books[random.randint(0, 8)].replace('*', str(random.randint(1, 20))),
                                     pages=random.randint(30, 500),
                                     price=random.randint(3, 50),
-                                    rating=random.randint(10, 100)/10,
+                                    rating=random.randint(10, 100) / 10,
                                     publisher=Publisher.objects.last(),
                                     pubdate=date(random.randint(1930, 2022), random.randint(1, 12),
                                                  random.randint(1, 28)),

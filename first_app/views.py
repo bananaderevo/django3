@@ -1,5 +1,6 @@
-from django.shortcuts import get_object_or_404, render
 from django.db.models import Avg, Count
+from django.shortcuts import get_object_or_404, render
+
 from .models import Author, Book, Comments, Publisher, Store
 
 
@@ -81,4 +82,3 @@ def show_comments(request):
 def show_comment(request, id):
     comment = get_object_or_404(Book, id=id)
     return render(request, 'first_app/show_comment.html', {'comment': comment})
-

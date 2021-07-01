@@ -28,7 +28,5 @@ class StoreModelAdmin(admin.ModelAdmin):
 
 
 @admin.register(Publisher)
-class AuthorModelAdmin(admin.ModelAdmin):
+class PublisherModelAdmin(admin.ModelAdmin):
     list_display = ['name', 'id']
-
-
