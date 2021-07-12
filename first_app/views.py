@@ -1,6 +1,6 @@
 from django.db.models import Avg, Count
 from django.shortcuts import get_object_or_404, render
-
+from django.contrib.auth.decorators import login_required
 from .models import Author, Book, Comments, Publisher, Store
 
 
@@ -8,6 +8,7 @@ def tofixed(numobj, digits=0):
     return f"{numobj:.{digits}f}"
 
 
+@login_required
 def main_page(request):
     return render(request, 'first_app/main.html')
 
@@ -52,7 +53,7 @@ def show_publisher(request, id):
     publisher = get_object_or_404(Book, id=id)
     return render(request, 'first_app/publisher.html', {'publisher': publisher})
 
-
+@login_required
 def show_books(request):
     book = Book.objects.order_by('-pubdate')
     price = Book.objects.all().aggregate(Avg('price'))['price__avg']
